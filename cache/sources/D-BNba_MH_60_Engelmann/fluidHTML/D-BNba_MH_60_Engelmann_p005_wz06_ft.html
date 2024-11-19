@@ -1,4 +1,60 @@
-<svg width="1098px" height="363px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mei="http://www.music-encoding.org/ns/mei" overflow="visible">
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Liquified Transcription: D-BNba MH 60 Engelmann, page 005, writing zone 06</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .content {
+            margin: 2rem auto;
+            position: relative;
+        }
+        #facsimile {
+            width: 1208px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        #facsimile img {
+            position: relative;
+            top: -333px;
+        }
+
+        #transcription {
+            width: 1008px;
+            position: absolute;
+            top: 202px;
+            left: 0;
+        }
+        #controls {
+            margin: 2rem auto;
+            position: absolute;
+            top: 450px;
+            left: 400px;
+        }
+        #controls input {
+            width: 400px;
+            display: block;
+        }
+        #controls .label {
+            display: block;
+            text-align: center;
+            width: 400px;
+            padding: .3rem;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div id="facsimile">
+            
+        </div>
+        <div id="transcription">
+            
+        <svg width="1098px" height="363px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mei="http://www.music-encoding.org/ns/mei" overflow="visible">
    <desc>Engraved by Verovio 4.4.0-dev-73f28d6</desc>
    <defs>
       <symbol id="E0A3-cl69dx" viewBox="0 0 1000 1000" overflow="inherit">
@@ -1139,4 +1195,22 @@
          </g>
       </g>
    </svg>
-</svg>
+</svg></div>
+    </div>
+    <div id="controls">
+        <input type="range" min="0" max="9.99" step="any" oninput="setPos(event)" onchange="setPos(event)" />
+        <div class="label">D-BNba MH 60 Engelmann, page 005, writing zone 06</div>
+    </div>
+    <script type="text/ecmascript">
+        function setPos(event) {
+            const val = event.target.value / 2
+            document.querySelectorAll('svg').forEach(function(svg) {svg.setCurrentTime(val)})
+            const facs = document.getElementById('facsimile')
+            const opacity = 1 / 3.25 * val
+            facs.style.opacity = 1 - opacity
+        }
+        document.querySelectorAll('svg').forEach(function(svg) {svg.pauseAnimations(); svg.setCurrentTime(0);})
+    </script>
+
+
+</body></html>
