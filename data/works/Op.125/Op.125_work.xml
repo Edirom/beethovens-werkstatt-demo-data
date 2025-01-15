@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei"
-     meiversion="6.0+beethovensWerkstatt">
+
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0">
    <meiHead>
       <fileDesc xml:id="he9075139-1a13-482f-a3da-31ee097fe4dd">
          <titleStmt xml:id="hd8f027c6-6c4f-4cb5-a156-7e1fec8bca57">
@@ -15,20 +15,85 @@
       <body xml:id="r41f311b6-f68c-4927-b3ed-3e9d6232b546">
          <mdiv n="1" xml:id="scb8c65d3-9dd5-430f-aa1b-ca0648f24f51">
             <score xml:id="r8aedb7c0-bf22-4697-b968-1d77edadcb9b">
-               <scoreDef xml:id="s9b3c319f-d70c-4395-a695-cc8dd1652c43">
-                  <staffGrp xml:id="s19cc7eed-4146-4946-8042-2f1d67096061">
-                     <staffDef n="1" lines="5" xml:id="s81c877c7-f5eb-456f-ba21-d2bf641f194e">
-                        <label xml:id="s598eb63d-d835-4f17-8eb0-b19f309d188e"/>
-                        <labelAbbr xml:id="s1db4e59d-2d4a-4a11-95fa-009a305833fd"/>
+               <scoreDef xml:id="s9b3c319f-d70c-4395-a695-cc8dd1652c43" meter.count="2" meter.unit="4">
+                  <staffGrp xml:id="s19cc7eed-4146-4946-8042-2f1d67096061" symbol="line">
+                     <staffGrp symbol="bracket">
+                        <staffGrp symbol="brace">
+                           <label xml:id="s42b5908e-09be-43b9-ac2e-6a0afd65e0b3">Flauti</label>
+                           <labelAbbr xml:id="sd82fd1e5-b778-46a4-a7cd-2c77e2dddfa7">Fl</labelAbbr>
+                           <staffDef n="1" lines="5" clef.shape="G" clef.line="2" keysig="1f"/>
+                           <staffDef n="2" lines="5" clef.shape="G" clef.line="2" keysig="1f"/>
+                        </staffGrp>
+                        <staffGrp symbol="brace">
+                           <label>Oboi</label>
+                           <labelAbbr>Ob</labelAbbr>
+                           <staffDef n="3" lines="5" clef.shape="G" clef.line="2" keysig="1f"/>
+                           <staffDef n="4" lines="5" clef.shape="G" clef.line="2" keysig="1f"/>
+                        </staffGrp>
+                        <staffGrp symbol="brace">
+                           <label>Clarinetti in B</label>
+                           <labelAbbr>Clar (B)</labelAbbr>
+                           <staffDef n="5" lines="5" clef.shape="G" clef.line="2" keysig="1s"/>
+                           <staffDef n="6" lines="5" clef.shape="G" clef.line="2" keysig="1s"/>
+                        </staffGrp>
+                        <staffGrp symbol="brace">
+                           <label>Fagotti</label>
+                           <labelAbbr>Fg</labelAbbr>
+                           <staffDef n="7" lines="5" clef.shape="F" clef.line="4" keysig="1f"/>
+                           <staffDef n="8" lines="5" clef.shape="F" clef.line="4" keysig="1f"/>
+                        </staffGrp>
+                     </staffGrp>
+                     <staffGrp>
+                        <staffGrp symbol="brace">
+                           <staffDef n="9" lines="5" clef.shape="G" clef.line="2" keysig="0">
+                              <label>Corni I, II in D</label>
+                              <labelAbbr>Cor I, II (D)</labelAbbr>
+                           </staffDef>
+                           <staffDef n="10" lines="5" clef.shape="G" clef.line="2" keysig="0">
+                              <label>Corni III, IV in B basso</label>
+                              <labelAbbr>Cor III, IV (B)</labelAbbr>
+                           </staffDef>
+                        </staffGrp>
+                        <staffDef n="11" lines="5" clef.shape="G" clef.line="2" keysig="0">
+                           <label>Trombe in D</label>
+                           <labelAbbr>Trb (D)</labelAbbr>
+                        </staffDef>
+                     </staffGrp>
+                     <staffDef n="12" lines="5" clef.shape="F" clef.line="4" keysig="0">
+                        <label>Timpani in d-A</label>
+                        <labelAbbr>Timp</labelAbbr>
                      </staffDef>
-                     <staffDef n="2" lines="5" xml:id="sffbaf2dd-94ea-4cd6-8d4d-cc02c4635655">
-                        <label xml:id="s42b5908e-09be-43b9-ac2e-6a0afd65e0b3"/>
-                        <labelAbbr xml:id="sd82fd1e5-b778-46a4-a7cd-2c77e2dddfa7"/>
-                     </staffDef>
+                     <staffGrp>
+                        <staffGrp symbol="brace">
+                           <staffDef n="13" lines="5" clef.shape="G" clef.line="2" keysig="1f">
+                              <label>Violino I</label>
+                              <labelAbbr>V I</labelAbbr>
+                           </staffDef>
+                           <staffDef n="14" lines="5" clef.shape="G" clef.line="2" keysig="1f">
+                              <label>Violino II</label>
+                              <labelAbbr>V II</labelAbbr>
+                           </staffDef>
+                        </staffGrp>
+                        <staffDef n="15" lines="5" clef.shape="C" clef.line="3" keysig="1f">
+                           <label>Viola</label>
+                           <labelAbbr>Va</labelAbbr>
+                        </staffDef>
+                        <staffDef n="16" lines="5" clef.shape="F" clef.line="4" keysig="1f">
+                           <label>Violoncello</label>
+                           <labelAbbr>Vc</labelAbbr>
+                        </staffDef>
+                        <staffDef n="17" lines="5" clef.shape="F" clef.line="4" keysig="1f">
+                           <label>Contrabasso</label>
+                           <labelAbbr>Cb</labelAbbr>
+                        </staffDef>
+                     </staffGrp>
                   </staffGrp>
                </scoreDef>
                <section xml:id="r5b8b6b52-f7c4-4eb9-ac68-41d889bed20b">
-                  <measure n="1" label="1" xml:id="m00508072-8860-4e47-b97e-13f58b4caf1c"/>
+                  <section>
+                  <measure n="1" label="1" xml:id="m00508072-8860-4e47-b97e-13f58b4caf1c">
+                     <tempo staff="1" place="above" tstamp="0">Allegro ma non troppo e un poco maestoso</tempo>
+                  </measure>
                   <measure n="2" label="2" xml:id="m81276cf7-8cf7-481f-ba25-8263e8d72386"/>
                   <measure n="3" label="3" xml:id="md7fe7cce-6cb2-4a8f-817a-fbb53020ed9a"/>
                   <measure n="4" label="4" xml:id="m05c83b2b-a594-4699-89be-497e509d29f8"/>
@@ -190,7 +255,9 @@
                   <measure n="160" label="160" xml:id="m59728f7b-28e3-482a-923f-3a5df0e811f2"/>
                   <measure n="161" label="161" xml:id="m939b86c7-bd3b-4593-b169-7d6f5cecc1e9"/>
                   <measure n="162" label="162" xml:id="m642efdec-ddc3-4797-a23e-82c07dc21e38"/>
-                  <measure n="163" label="163" xml:id="md7ffbd8a-1dbc-4153-82ff-ec184ee4d89d"/>
+                  <measure n="163" label="163" xml:id="md7ffbd8a-1dbc-4153-82ff-ec184ee4d89d" right="dbl"/>
+                 </section>
+                 <section>
                   <measure n="164" label="164" xml:id="m2a8495ea-9712-4621-8a39-6757f3d2f473"/>
                   <measure n="165" label="165" xml:id="m7fb5230e-4456-47f2-9631-fd6dc2d1dee4"/>
                   <measure n="166" label="166" xml:id="me8f17258-8450-4c49-8427-8e64401d8da7"/>
@@ -574,8 +641,9 @@
                   <measure n="544" label="544" xml:id="m3e503329-ab62-40b6-b813-9279dd123567"/>
                   <measure n="545" label="545" xml:id="m358b65f6-b223-4b32-9ddc-c47238d456fe"/>
                   <measure n="546" label="546" xml:id="md29b33da-0f31-4879-9a5b-0c1e0d51b41d"/>
-                  <measure n="547" label="547" xml:id="m123269e8-18ab-4ea1-b665-a259ad22f3be"/>
+                  <measure n="547" label="547" xml:id="m123269e8-18ab-4ea1-b665-a259ad22f3be" right="end"/>
                </section>
+              </section>
             </score>
          </mdiv>
          <mdiv n="2" xml:id="sd72e40a3-5f59-4bc0-a9b6-39d150e7f22e">
