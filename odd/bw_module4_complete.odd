@@ -74,7 +74,7 @@
                except="addName bloc country district famName foreName genName geogFeat nameLink periodName postBox postCode region roleName settlement street styleName"/>
             <moduleRef key="MEI.ptrref"/>
             <moduleRef key="MEI.shared"
-               except="actor address addrLine ambitus ambNote analytic annot author barLine caption castGrp castItem cb castList colLayout contributor custos depth dim dimensions distributor div dot edition event eventList expansion extent genre group height imprint incip keyAccid lg librettist monogr pad pgDesc pgFoot pgHead phrase recipient relatedItem role roleDesc speaker sponsor stack term textLang titlePage titlePart width"/>
+               except="actor address addrLine ambitus ambNote analytic author barLine caption castGrp castItem cb castList colLayout contributor custos depth dim dimensions distributor div dot edition event eventList expansion extent genre group height imprint incip keyAccid lg librettist monogr pad pgDesc pgFoot pgHead phrase recipient relatedItem role roleDesc speaker sponsor stack term textLang titlePage titlePart width"/>
             <moduleRef key="MEI.usersymbols"
                except="anchoredText curve line mapping propName propValue"/>
             <moduleRef key="MEI.visual"/>
@@ -807,21 +807,19 @@
                <attList>
                   <attDef ident="meiversion" usage="opt">
                      <desc xml:lang="en">Specifies a generic MEI version label.</desc>
-                     <defaultVal>6.0+beethovensWerkstatt</defaultVal>
                      <valList type="closed">
                         <valItem ident="6.0+beethovensWerkstatt">
                            <desc xml:lang="en">MEI 6.0 with customizations by Beethovens Werkstatt</desc>
                         </valItem>
                      </valList>
                   </attDef>
-                  <attDef ident="attribute" usage="opt" ns="https://www.beethovens-werkstatt.de/ns/mei/proposal">
-                     <defaultVal>test</defaultVal>
+                  <!--<attDef ident="attribute" usage="opt" ns="https://www.beethovens-werkstatt.de/ns/mei/proposal">
                      <valList type="closed">
                         <valItem ident="test">
                            <desc xml:lang="en">Test attribute in different namespace.</desc>
                         </valItem>
                      </valList>
-                  </attDef>
+                  </attDef>-->
                </attList>
             </classSpec>
          </schemaSpec>
