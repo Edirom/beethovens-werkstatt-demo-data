@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="m22147d30-6f70-4917-9b1d-92b5ffa05ca1">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="me76d4f95-bfda-41ca-af10-e1dd58d10a2c">
         <fileDesc xml:id="fe92f1c51-33dc-4f64-bca9-79b8c31e503f">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -161,8 +161,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="mea46b545-2c9a-4c43-a32c-152a50e6befe">
-                <drafts xml:id="d7baf63a7-0c14-46a0-bd42-3056cb2e9b4e">
-                    <draft xml:id="dbd12fac3-ad05-4c08-a80e-f44ad969b684" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="d7baf63a7-0c14-46a0-bd42-3056cb2e9b4e">
+                    <bw:draft xml:id="dbd12fac3-ad05-4c08-a80e-f44ad969b684" class="#bw_diplomatic_transcript">
                         <pb xml:id="pfcc695a1-088c-4495-94ee-b4a4cdec75b2" target="../D-BNba_MH_60_Engelmann.xml#xa5c51527-c2ed-4565-91db-c6723d3a5d25"/>
                         <bw:system xml:id="sd20077d0-0713-47c6-855f-6f00036138fc">
                             <scoreDef xml:id="se3020f20-d058-46f7-842d-a58ab5bd2947">
@@ -171,7 +171,7 @@
                                     <staffDef xml:id="s9eb83bc5-6f25-49a4-9dc1-964035d7ebb3" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r7b496e1e-4fdf-4f43-8747-c9de497ae2d8"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sb57b4674-82ec-433e-aa2c-5f4097a938e9" join="#s45e272a7-780e-4539-a3ff-03e52a7f7604">
+                            <section xml:id="sb57b4674-82ec-433e-aa2c-5f4097a938e9" >
                                 <staff n="1" xml:id="see6ea942-1453-4d2b-860a-e8fcfd04e235" rotate="-0.1">
                                     <layer n="1" xml:id="la8bcde10-bd3e-485e-bf61-c53abd5f8dbc">
                                         <note xml:id="d6ce0571e-a9cd-433b-ac7d-c40f90581034" x="113" facs="../svg/D-BNba_MH_60_Engelmann_p037.svg#shape_3beec8a3-7f40-4b13-be9c-d38f1cdc35d1 ../svg/D-BNba_MH_60_Engelmann_p037.svg#shape_df9cd564-a741-4504-b5d3-7e6e966bb1f8" loc="10" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -240,7 +240,7 @@
                                     <staffDef xml:id="sf6cf61c7-a9c2-4fb2-9c69-b65171f8588e" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#rfb05c77f-bf7b-497d-bb60-86363420be91"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s45e272a7-780e-4539-a3ff-03e52a7f7604" join="#sb57b4674-82ec-433e-aa2c-5f4097a938e9">
+                            <section xml:id="s45e272a7-780e-4539-a3ff-03e52a7f7604" >
                                 <staff n="1" xml:id="s2a3d4946-80ae-4be8-933a-f927054be56f" rotate="-0.1">
                                     <layer n="1" xml:id="l5b592444-d2d3-4729-a0fe-a1f23ac8fc46">
                                         <note xml:id="d65428bab-1887-405b-b773-cb0db643ef74" x="13" facs="../svg/D-BNba_MH_60_Engelmann_p037.svg#shape_7302a009-1848-417c-86e4-81e1ec52b55a" loc="2" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -256,8 +256,8 @@
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

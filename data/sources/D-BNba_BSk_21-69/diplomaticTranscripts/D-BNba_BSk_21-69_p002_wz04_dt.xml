@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="m7aa1c729-baa2-4041-a02e-00549d0a8ef2">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="m3e2cf0ed-178e-4794-bc46-085fd887905d">
         <fileDesc xml:id="f44afd367-b7a3-46dc-8239-d4b680a724a8">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -161,8 +161,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="mb58ddd82-6e10-4aac-8da9-00321ac149d9">
-                <drafts xml:id="d51037fd5-11e5-4f84-997e-cf7e6f11c9e1">
-                    <draft xml:id="de2754cee-7fd5-4a4b-87f7-e263055ca2d7" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="d51037fd5-11e5-4f84-997e-cf7e6f11c9e1">
+                    <bw:draft xml:id="de2754cee-7fd5-4a4b-87f7-e263055ca2d7" class="#bw_diplomatic_transcript">
                         <pb xml:id="p586ac5de-268d-4cca-9a5c-6eb128235bb6" target="../D-BNba_BSk_21-69.xml#xd174ea19-b7ae-48c8-aca1-ad6b5701f8b9"/>
                         <bw:system xml:id="s63297e8c-d779-4a5f-bef8-feafd864b96a">
                             <scoreDef xml:id="sf109243c-34de-4768-a00b-8228af01d4bf">
@@ -171,7 +171,7 @@
                                     <staffDef xml:id="sfb652b3c-5091-4a39-b22d-f9493fad7c7e" n="2" lines="5" decls="../D-BNba_BSk_21-69.xml#rfad05ac7-3940-46ee-81d5-288bb4bc67dc"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s3cb3d772-2dca-405e-b0e0-e13dd1fa63d8" join="#s1c296d45-5c17-4126-bde5-303ebc74d055">
+                            <section xml:id="s3cb3d772-2dca-405e-b0e0-e13dd1fa63d8" >
                                 <staff n="1" xml:id="sc0cc844c-30e9-499f-a263-92d0053d675a" rotate="0.3">
                                     <layer n="1" xml:id="l270fea5f-cce5-4083-babc-6843b49c22d2">
                                         <note xml:id="dca04929c-40aa-48ae-bb84-57090cbdb7e4" x="44" facs="../svg/D-BNba_BSk_21-69_p002.svg#shape_7bea6f59-af63-4f4c-b303-5f9654f28f94" loc="8" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -214,7 +214,7 @@
                                     <staffDef xml:id="sc21b929e-4df5-4212-8415-e0041913f137" n="2" lines="5" decls="../D-BNba_BSk_21-69.xml#r3ddd960e-0b26-4ee5-885e-cf257eb9f5bc"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s1c296d45-5c17-4126-bde5-303ebc74d055" join="#s3cb3d772-2dca-405e-b0e0-e13dd1fa63d8">
+                            <section xml:id="s1c296d45-5c17-4126-bde5-303ebc74d055" >
                                 <staff n="1" xml:id="s9c3af8b0-9b16-41ae-9a34-8dc44524e3bc" rotate="0.3">
                                     <layer n="1" xml:id="l03467aeb-1b35-4bd4-9e44-1a019cf2931e">
                                         <note xml:id="da1ebf038-aa16-439c-a086-27b168a4f361" x="39" facs="../svg/D-BNba_BSk_21-69_p002.svg#shape_6b2f7b3d-2cfa-430f-8795-9c6d9f96cc55" loc="4" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -243,8 +243,8 @@
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

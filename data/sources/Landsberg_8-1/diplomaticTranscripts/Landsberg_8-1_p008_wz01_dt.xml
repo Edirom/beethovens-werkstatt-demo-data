@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="mc3683b80-09ba-4c4c-a0cf-178f280504d3">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="m28c99a94-f322-4a94-9633-7d9f7742926a">
         <fileDesc xml:id="fc838ba96-8598-4c76-8768-14a94b1ccfc7">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -160,8 +160,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="me77e753d-2d9d-4f6e-95a6-00e64271a1e8">
-                <drafts xml:id="da6474dc4-4d45-4736-af02-c30881230c12">
-                    <draft xml:id="d6a9df406-710d-4906-b1aa-63197a3a89d5" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="da6474dc4-4d45-4736-af02-c30881230c12">
+                    <bw:draft xml:id="d6a9df406-710d-4906-b1aa-63197a3a89d5" class="#bw_diplomatic_transcript">
                         <pb xml:id="p61e2ffe8-f097-4eeb-85d9-d322003a0427" target="../Landsberg_8-1.xml#s5ca753e8-956f-4e25-b653-371c1fe65015"/>
                         <bw:system xml:id="sb7ef279c-7865-4ad7-8098-2bd9d3273715">
                             <scoreDef xml:id="s50e858a6-2870-472f-b4bf-59c6f5ff44df">
@@ -170,7 +170,7 @@
                                     <staffDef xml:id="s9758a636-34e1-4b09-b66a-5eddb946acbd" n="2" lines="5" decls="../Landsberg_8-1.xml#r2b9eeffc-4606-4e60-a498-f5132242cbbe"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sf350a68b-0030-4fe2-9834-51ab2fc3eacf" join="#sacbb24a1-efc9-48f1-866a-4271e3004418">
+                            <section xml:id="sf350a68b-0030-4fe2-9834-51ab2fc3eacf" >
                                 <staff n="1" xml:id="s2332a5db-29f1-471d-8897-2d1fc9cb4b08" rotate="0.03">
                                     <layer n="1" xml:id="l79152aca-b03f-4537-afa5-7a9504265863">
                                         <chord xml:id="dac27f93e-6176-4089-86e2-10c8b08e3045" x="27.4" facs="../svg/Landsberg_8-1_p008.svg#shape_803d41f6-19fb-4b6c-9f59-e8a0c563863d ../svg/Landsberg_8-1_p008.svg#shape_f1b0d3df-0628-4a3b-b74e-ac0d84c78725 ../svg/Landsberg_8-1_p008.svg#shape_2936b8a7-ec98-479e-91f1-f50aa7d97d59 ../svg/Landsberg_8-1_p008.svg#shape_ce1d5885-9fb9-43a1-80a7-19b41c68ceeb ../svg/Landsberg_8-1_p008.svg#shape_03c7097e-8cf8-42f8-b512-56ce587603ae ../svg/Landsberg_8-1_p008.svg#shape_40384717-da5c-4ef6-b61f-ab2059cfe80f" stem.dir="down">
@@ -212,7 +212,7 @@
                                     <staffDef xml:id="seda4e1b8-7e74-4409-80d5-dcef054de948" n="2" lines="5" decls="../Landsberg_8-1.xml#rfb00f8fd-5205-4ed3-8302-11c62c7c08d0"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sacbb24a1-efc9-48f1-866a-4271e3004418" join="#sf350a68b-0030-4fe2-9834-51ab2fc3eacf">
+                            <section xml:id="sacbb24a1-efc9-48f1-866a-4271e3004418" >
                                 <staff n="1" xml:id="s66fedf1a-7cd6-4a6d-aa6a-2a02d9b34134" rotate="0.03">
                                     <layer n="1" xml:id="lb315964d-2b2a-4982-9e13-24932341a2a8">
                                         <rest xml:id="d25fe0543-195e-4e8b-a319-9aa9d1952017" x="44.9" facs="../svg/Landsberg_8-1_p008.svg#shape_b443e9e4-cd0e-4dda-a3aa-2c87a7a7f4a5" loc="5" glyph.name="rest8th" glyph.auth="smufl"/>
@@ -247,8 +247,8 @@
                                 <beamSpan xml:id="db9952a5a-0460-4341-b56c-1845d7e49ad7" x="161.3" facs="../svg/Landsberg_8-1_p008.svg#shape_dd964cc5-f295-46d2-98e6-45d6e1a6a9e3 ../svg/Landsberg_8-1_p008.svg#shape_4f9a05e0-b228-48bf-a463-50ccab43ca5e" plist="#d3e45ed8a-3c3e-4041-9e82-03ac7e21bcfd #d3b103807-35db-4618-8418-d9df083bd7e2 #dfd028454-6a5c-4c2f-9401-b56bf0634e9f #d055d5bc1-c5b4-418b-a654-2e6d7f2340f3" startid="#d3e45ed8a-3c3e-4041-9e82-03ac7e21bcfd" endid="#d055d5bc1-c5b4-418b-a654-2e6d7f2340f3" staff="1"/>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

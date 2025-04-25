@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="m20cc3cd9-e1cc-48a8-b3fd-4344aa8702bc">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="ma7e83dc5-ac17-4d3d-a8e7-33e26a63078d">
         <fileDesc xml:id="f777c6bd1-65da-4e8d-a5b6-d623e3289ae4">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -160,8 +160,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="m0c01fb50-b84d-4891-9efc-08cc858a5a45">
-                <drafts xml:id="d484f1bdd-ef37-4fdb-b503-39ff7d4b073d">
-                    <draft xml:id="d619d170c-3ba1-45ea-9259-2675c7242b76" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="d484f1bdd-ef37-4fdb-b503-39ff7d4b073d">
+                    <bw:draft xml:id="d619d170c-3ba1-45ea-9259-2675c7242b76" class="#bw_diplomatic_transcript">
                         <pb xml:id="p4befe407-3695-47b8-85eb-fba0963ce71f" target="../Landsberg_8-1.xml#s15b8e849-988f-4985-9d0e-b32b42461883"/>
                         <bw:system xml:id="s7a938cea-52c7-4d35-84a8-d75770ec1ca5">
                             <scoreDef xml:id="se06483ed-77de-4166-a908-951e798dd6d0">
@@ -169,7 +169,7 @@
                                     <staffDef xml:id="s32a18e03-e2af-4189-a54b-2c10c4255841" n="1" lines="5" decls="../Landsberg_8-1.xml#r3d68207f-88e0-4a27-8e46-4dc1d7a11b47"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s98d6191b-11a4-4ca8-a8fc-7e981570ee65" join="#s34c49f9b-1b78-46de-a7c0-df8a9b8470ac">
+                            <section xml:id="s98d6191b-11a4-4ca8-a8fc-7e981570ee65" >
                                 <staff n="1" xml:id="s81c8e20a-46e8-4273-be6f-620a773ff662" rotate="0.1">
                                     <layer n="1" xml:id="le26350f0-058b-4527-896f-395d9b812ac0"/>
                                 </staff>
@@ -181,14 +181,14 @@
                                     <staffDef xml:id="sf2d79711-dac5-4f97-ae34-cf7668c4be40" n="1" lines="5" decls="../Landsberg_8-1.xml#r58afe931-be37-4532-b94d-f4732ad397bc"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s34c49f9b-1b78-46de-a7c0-df8a9b8470ac" join="#s98d6191b-11a4-4ca8-a8fc-7e981570ee65">
+                            <section xml:id="s34c49f9b-1b78-46de-a7c0-df8a9b8470ac" >
                                 <staff n="1" xml:id="s409c36f9-3047-428c-98d0-d3b125d810ab" rotate="0.1">
                                     <layer n="1" xml:id="l6e11a0d6-0e3f-4719-834d-10a2a303ae73"/>
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="mad321b91-a52f-40e8-bf4e-71b06461e651">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="m8409f051-f003-4539-b6bf-4419c6929f3c">
         <fileDesc xml:id="f8149443b-7f9c-47f6-910c-5962c37194d6">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -161,8 +161,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="m42032608-d2b8-4169-80e3-cca9f2f05f9e">
-                <drafts xml:id="d6137550d-8eb9-42d8-8bb8-c752dd6f7e7f">
-                    <draft xml:id="d9c1a2182-4c3f-4f1d-b7de-bc51c8305204" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="d6137550d-8eb9-42d8-8bb8-c752dd6f7e7f">
+                    <bw:draft xml:id="d9c1a2182-4c3f-4f1d-b7de-bc51c8305204" class="#bw_diplomatic_transcript">
                         <pb xml:id="p2e7e708e-15f5-453f-8f7e-4e701831bebd" target="../D-BNba_MH_60_Engelmann.xml#x69931b4f-66d0-4d26-9f4b-8a076f22a60c"/>
                         <bw:system xml:id="sd3533ba7-a94b-41fb-9850-e0c11e40feb1">
                             <scoreDef xml:id="sde8db798-8f94-4962-8505-fd0342561f52">
@@ -171,7 +171,7 @@
                                     <staffDef xml:id="s432c2d6f-4425-41be-ba97-6bf09c0d3a79" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r009484c3-e1a7-48dd-9b58-ecbdb22008de"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s682e747e-2e64-4555-b5d4-7bbe89edeab8" join="#sc77b5737-9568-4ade-845b-0081a5406dae">
+                            <section xml:id="s682e747e-2e64-4555-b5d4-7bbe89edeab8" >
                                 <staff n="1" xml:id="s0834b887-faa4-45be-a693-0e7cf7ed7724" rotate="0.13">
                                     <layer n="1" xml:id="l63875007-a24f-4f4e-92c7-a6da34672a92">
                                         <note xml:id="d3d15ceb0-3c8e-4059-ab49-5934e0e8c5fc" x="28.2" facs="../svg/D-BNba_MH_60_Engelmann_p016.svg#shape_3e8c910b-1605-46b7-a8d2-9032d78902d5 ../svg/D-BNba_MH_60_Engelmann_p016.svg#shape_116b6255-9ce6-4546-9a26-6db38b95c3e5" loc="7" head.shape="quarter" dur="16" stem.dir="up"/>
@@ -277,7 +277,7 @@
                                     <staffDef xml:id="scdd262cb-7ec4-45ad-97e2-f772fde0411e" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#rbf3a3dca-f863-436d-b545-3a0b144a4dec"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sc77b5737-9568-4ade-845b-0081a5406dae" join="#s682e747e-2e64-4555-b5d4-7bbe89edeab8">
+                            <section xml:id="sc77b5737-9568-4ade-845b-0081a5406dae" >
                                 <staff n="1" xml:id="sa767581c-9237-4db4-bcc5-0033ceb629b7" rotate="0.13">
                                     <layer n="1" xml:id="l9fbef496-cc5c-4a20-aa0e-a1ae96f8f0a4">
                                         <note xml:id="da9e3f48b-b70d-4cb8-939a-0e51746c9654" x="22.1" facs="../svg/D-BNba_MH_60_Engelmann_p016.svg#shape_b8595961-b0d0-4f3c-a80f-74bf52e27a82" loc="8" head.shape="quarter" dur="16" stem.dir="down"/>
@@ -311,8 +311,8 @@
                                 <beamSpan xml:id="dd41cb976-9114-4f37-ada5-8b383a78faf3" x="117.4" facs="../svg/D-BNba_MH_60_Engelmann_p016.svg#shape_f86ca421-a4ab-427e-a415-3a998b1458e2" plist="#d3d5669c7-7310-4652-afbb-8465bba4c321 #d8ffdfab6-8a92-4dbd-9f67-5a44c6751c35" startid="#d3d5669c7-7310-4652-afbb-8465bba4c321" endid="#d8ffdfab6-8a92-4dbd-9f67-5a44c6751c35" staff="1"/>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

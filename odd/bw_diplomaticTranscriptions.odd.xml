@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="mei-customizations.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns:rng="http://relaxng.org/ns/structure/1.0"
+   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Beethovens Werkstatt Data Model Customization</title>
+            <respStmt>
+               <resp>Authored by</resp>
+               <name xml:id="JK">Johannes Kepper</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+            </publisher>
+            <date when="2023"/>
+            <availability>
+               <licence target="http://creativecommons.org/licenses/by-sa/4.0/">
+                  Creative Commons Attribution-ShareAlike 4.0 International </licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Original work by the Beethovens Werkstatt, but inspired by the great work of many other projects.</p>
+         </sourceDesc>
+      </fileDesc>
+      <revisionDesc>
+         <change n="1" when="2023-05-05" who="#JK">
+            <desc>Initial setup of the ODD.</desc>
+         </change>
+         <change n="2" when="2025-04-24" who="#JK">
+            <desc>Separation for specific file types.</desc>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <schemaSpec ident="mei" ns="http://www.music-encoding.org/ns/mei" prefix="mei_"
+            start="mei" source="https://raw.githubusercontent.com/music-encoding/schema/refs/heads/main/dev/mei-all_compiled.odd">
+            <!-- Declare MEI and XLink namespaces for use in Schematron -->
+            <constraintSpec ident="set_ns" scheme="schematron" mode="add">
+               <constraint>
+                  <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="mei"
+                     uri="http://www.music-encoding.org/ns/mei"/>
+                  <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="xlink"
+                     uri   ="http://www.w3.org/1999/xlink"/>
+                  <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="svg"
+                     uri="http://www.w3.org/2000/svg"/>
+                  <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="tei"
+                     uri="http://www.tei-c.org/ns/1.0"/>
+                  <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="bw"
+                     uri="https://beethovens-werkstatt.de/ns/meiAdditions"/>
+               </constraint>
+            </constraintSpec>
+            <!-- Include all modules -->
+            <moduleRef key="MEI"/>
+            <moduleRef key="MEI.cmn"
+               except="bend bracketSpan breath meterSigGrp mNum tupletSpan"/>
+            <moduleRef key="MEI.cmnOrnaments"/>
+            <moduleRef key="MEI.drama"/>
+            <moduleRef key="MEI.externalsymbols"/>
+            <moduleRef key="MEI.facsimile"/>
+            <moduleRef key="MEI.figtable" include="graphic"/>
+            <moduleRef key="MEI.fingering"/>
+            <moduleRef key="MEI.frbr"/>
+            <moduleRef key="MEI.genetic" except="genDesc genState"/>
+            <moduleRef key="MEI.harmony" except="chordDef chordMember chordTable"/>
+            <moduleRef key="MEI.header"
+               except="componentList acquisition altId attUsage audience byline captureMode carrierForm catRel classification condition contentItem contents context cutout editionStmt exhibHist extMeta fileChar hand handList history incipCode incipText inscription key mensuration meter namespace notesStmt otherChar patch perfDuration physMedium playingSpeed price provenance segmentation soundChan specRepro stdVals sysReq tagsDecl tagUsage termList trackConfig treatHist treatSched useRestrict watermark"/>
+            <moduleRef key="MEI.lyrics"/>
+            <moduleRef key="MEI.namesdates"
+               except="addName bloc country district famName foreName genName geogFeat nameLink periodName postBox postCode region roleName settlement street styleName"/>
+            <moduleRef key="MEI.ptrref"/>
+            <moduleRef key="MEI.shared"
+               except="actor address addrLine ambitus ambNote analytic author barLine caption castGrp castItem cb castList colLayout contributor custos depth dim dimensions distributor div dot edition event eventList expansion extent genre group height imprint incip keyAccid lg librettist monogr pad pgDesc pgFoot pgHead phrase recipient relatedItem role roleDesc speaker sponsor stack term textLang titlePage titlePart width"/>
+            <moduleRef key="MEI.usersymbols"
+               include="anchoredText curve line"/>
+            <moduleRef key="MEI.visual"/>
+            
+            <!-- Include SVG -->
+            <moduleRef url="https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/svg11.rng"
+               prefix="svg_">
+               <content>
+                  <rng:define name="mei_model.graphicLike" combine="choice">
+                     <rng:ref name="svg_svg"/>
+                  </rng:define>
+               </content>
+            </moduleRef>
+            
+            <!-- changing Schematron rule -->
+            <!-- TODO: This is a temporary fix -->
+            <classSpec ident="att.responsibility" module="MEI.shared" type="atts" mode="change">
+               <desc xml:lang="en">Attributes capturing information regarding responsibility for some aspect of the text's creation, transcription, editing, or encoding.</desc>
+               <attList>
+                  <attDef ident="resp" usage="opt" mode="change">
+                     <desc xml:lang="en">Indicates the agent(s) responsible for some aspect of the text’s transcription, editing, or encoding. Its value must point to one or more identifiers declared in the document header.</desc>
+                     <datatype maxOccurs="unbounded">
+                        <rng:ref name="data.URI"/>
+                     </datatype>
+                     <constraintSpec ident="check_respTarget" scheme="schematron" mode="change">
+                        <constraint>
+                           <sch:rule context="@resp">
+                              <sch:assert role="warning" test="not(normalize-space(.) eq '')">@resp attribute should have content.</sch:assert>
+                              <sch:assert role="warning" test="(every $i in tokenize(., '\s+') satisfies substring($i,2)=//mei:*[ancestor::mei:meiHead]/@xml:id) or . = '#bw_jk'">The value in @resp should correspond to the @xml:id attribute of an element within the metadata header, or reference #bw_jk.</sch:assert>
+                           </sch:rule>
+                        </constraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
+            
+            <!-- Disable mensural- and neume-specific model classes in the shared module -->
+            <classSpec ident="model.sectionPart.mensuralAndNeumes" module="MEI.shared" type="model"
+               mode="delete"/>
+            <classSpec ident="model.staffPart.mensuralAndNeumes" module="MEI.shared" type="model"
+               mode="delete"/>
+            <classSpec ident="model.layerPart.mensuralAndNeumes" module="MEI.shared" type="model"
+               mode="delete"/>
+            <!-- delete atribute classes -->
+            
+            <classSpec type="atts" ident="att.linking" module="MEI.shared" mode="change">
+               <attList>
+                  <attDef ident="corresp" usage="opt" mode="change">
+                     <constraintSpec ident="check_correspTarget" scheme="schematron" mode="replace">
+                        <constraint>
+                           <sch:rule context="@corresp">
+                              <sch:assert role="warning" test="not(normalize-space(.) eq '')">@corresp attribute should have content.</sch:assert>
+                              <sch:assert role="warning" test="every $i in tokenize(., '\s+') satisfies substring($i,2)=//mei:*/@xml:id or matches($i, '^([a-z]+://|\.{1,2}/)')">Each value in @corresp should correspond to the @xml:id attribute of an element or be an external URL.</sch:assert>
+                           </sch:rule>
+                        </constraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
+            <!-- Move model.noteModifierLike from layerPart.mensuralAndNeumes to editTransPart.music -->
+            <classSpec ident="model.noteModifierLike" module="MEI.shared" type="model" mode="replace">
+               <desc>Groups elements that modify note-like features.</desc>
+               <classes>
+                  <memberOf key="model.editTransPart.music"/>
+               </classes>
+            </classSpec>
+            
+            <macroSpec ident="macro.metaLike.page" module="MEI.shared" mode="delete"/>
+            
+            <!-- allow @facs references to SVG shapes -->
+            <classSpec ident="att.facsimile" module="MEI.facsimile" type="atts" mode="replace">
+               <desc>Attributes that associate a feature corresponding with all or part of an image.</desc>
+               <attList org="group">
+                  <attDef ident="facs" usage="opt">
+                     <desc>Permits the current element to reference a facsimile surface or image zone which corresponds to it.</desc>
+                     <datatype maxOccurs="unbounded" minOccurs="1">
+                        <rng:ref name="data.URI" />
+                     </datatype>
+                     <constraintSpec ident="check_facsTarget" scheme="schematron" mode="replace">
+                        <constraint>
+                           <sch:rule context="@facs">
+                              <sch:assert role="warning" test="not(normalize-space(.) eq '')">@facs attributes should have content.</sch:assert>
+                              <sch:assert role="warning" test="normalize-space(.) = .">@facs should use normalized space.</sch:assert>
+                              <sch:assert role="error" test="every $i in tokenize(., '\s+') satisfies starts-with($i, '../svg/')">In diplomatic transcripts, @facs must point to a separate SVG file (link starting with '../svg/').</sch:assert>
+                           </sch:rule>
+                        </constraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
+            <!-- All Schematron rules are gathered here for better orientation. -->
+            <elementSpec ident="mei" module="MEI.shared" mode="change">
+               <constraintSpec ident="check-mei-id" scheme="schematron" mode="add">
+                  <constraint>
+                     <sch:rule context="mei:mei">
+                        <sch:assert test="@xml:id">An mei file must have an id</sch:assert>
+                     </sch:rule>
+                     
+                     <!-- make sure a file has a type -->
+                     <sch:rule context="mei:meiHead">
+                        <sch:assert test="mei:encodingDesc">Each MEI file needs to have an encodingDesc.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:encodingDesc">
+                        <sch:assert test="@class">Each encodingDesc needs to identify the right type of file using @class.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:encodingDesc">
+                        <sch:let name="classes" value="tokenize(normalize-space(.),' ')"/>
+                        <sch:let name="doc" value="'#bw_document_file' = $classes"/>
+                        <sch:let name="dt" value="'#bw_diplomatic_transcript' = $classes"/>
+                        <sch:let name="at" value="'#bw_annotated_transcript' = $classes"/>
+                        <sch:assert test="$dt">A diplomatic transcription must use @class "#bw_diplomatic_transcript".</sch:assert>
+                        <sch:assert test="not($at)">A diplomatic transcription must not use @class "#bw_annotated_transcript".</sch:assert>
+                        <sch:assert test="not($doc)">A diplomatic transcription must not use @class "#bw_document_file".</sch:assert>
+                     </sch:rule>
+                 
+                     <!-- check events in diplomatic transcripts -->
+                     <sch:rule context="mei:note/@*">
+                        <sch:let name="forbiddenAttributes" value="('pname', 'oct', 'dots')"/>
+                        <sch:let name="localName" value="local-name(.)"/>
+                        <sch:assert test="not($localName = $forbiddenAttributes)">In diplomatic transcripts, notes may not use the <sch:value-of select="$localName"/> attribute.</sch:assert>
+                     </sch:rule>
+                     
+                     <sch:rule context="mei:note">
+                        <sch:assert test="@xml:id">A note is required to have an @xml:id.</sch:assert>
+                        <sch:assert test="@x or parent::mei:chord/@x">A note must have an @x position.</sch:assert>
+                        <sch:assert test="@facs or parent::mei:chord/@facs">In a diplomatic transcription, a note must provide a @facs reference.</sch:assert>
+                        <sch:assert test="@loc">A @loc is required for notes.</sch:assert>
+                        <sch:assert test="@head.shape">It is required to provide a @head.shape.</sch:assert>
+                        <!--<sch:assert test="@stem.dir">A @stem.dir is required in almost all cases.</sch:assert>-->
+                     </sch:rule>
+                     
+                     <sch:rule context="mei:artic">
+                        <sch:assert test="@place">Every artic needs a place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:beamSpan">
+                        <sch:assert test="@plist">Every beamSpan needs a plist attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:dir">
+                        <sch:assert test="@place">Every dir needs a place attribute.</sch:assert>
+                        <sch:assert test="@layer">Every dir needs a layer attribute.</sch:assert>
+                        <sch:assert test="@staff">Every dir needs a staff attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:dynam">
+                        <sch:assert test="@place">Every dynam needs a place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:fermata">
+                        <sch:assert test="@place">Every fermata needs a place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:fing">
+                        <sch:assert test="@place">Every fing needs a place attribute.</sch:assert>
+                        <sch:assert test="@staff">Every fing needs a staff attribute.</sch:assert>
+                        <sch:assert test="@layer">Every fing needs a layer attribute.</sch:assert>
+                        <sch:assert test="@startid">Every fing needs a startid attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:hairpin">
+                        <sch:assert test="@place">Every hairpin needs a place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:harm">
+                        <sch:assert test="@place">Every harm needs a place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:octave">
+                        <sch:assert test="@dis.place">Every octave needs a dis.place attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:pedal">
+                        <sch:assert test="@place">Every pedal needs a place attribute.</sch:assert>
+                        <sch:assert test="@staff">Every pedal needs a staff attribute.</sch:assert>
+                        <sch:assert test="@layer">Every pedal needs a layer attribute.</sch:assert>
+                        <sch:assert test="@tstamp">Every pedal needs a tstamp attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:slur">
+                        <sch:assert test="@curvedir">Every slur needs a curvedir attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:tempo">
+                        <sch:assert test="@place">Every tempo needs a place attribute.</sch:assert>
+                        <sch:assert test="@tstamp">Every tempo needs a tstamp attribute.</sch:assert>
+                        <sch:assert test="@layer">Every tempo needs a layer attribute.</sch:assert>
+                        <sch:assert test="@staff">Every tempo needs a staff attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:tie">
+                        <sch:assert test="@curvedir">Every tie needs a curvedir attribute.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:trill">
+                        <sch:assert test="@place">Every trill needs a place attribute.</sch:assert>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            
+            <elementSpec ident="artic" module="MEI.shared" mode="change">
+               <attList>
+                  <attDef ident="artic" mode="replace" usage="req">
+                     <desc versionDate="2024-10-14" resp="#KH">articulation is restricted to the values: acc, dot, stacc, stress, stroke, ten, unstress</desc>
+                     <valList type="closed">
+                        <valItem ident="acc"/>
+                        <valItem ident="dot"/>
+                        <valItem ident="stroke"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            
+            <elementSpec ident="mdiv" module="MEI.shared" mode="change">
+               <content>
+                  <rng:ref name="model.draftsLike"/>
+               </content>
+            </elementSpec>
+            
+            <classSpec ident="model.draftsLike" type="model" module="MEI.genetic" mode="add">
+               <desc xml:lang="en">Groups elements similar to drafts containers.</desc>
+            </classSpec>
+            
+            <elementSpec ident="drafts" module="MEI.genetic" mode="add" prefix="bw_" ns="https://beethovens-werkstatt.de/ns/meiAdditions">
+               <desc>Provides a container for drafts.</desc>
+               <classes>
+                  <memberOf key="att.common"/>
+                  <memberOf key="att.declaring"/>
+                  <memberOf key="model.draftsLike"/>
+               </classes>
+               <content>
+                  <rng:oneOrMore>
+                     <rng:ref name="model.draftLike"/>
+                  </rng:oneOrMore>
+               </content>
+            </elementSpec>
+
+            <classSpec ident="model.draftLike" type="model" module="MEI.genetic" mode="add">
+               <desc xml:lang="en">Groups elements similar to drafts.</desc>
+            </classSpec>
+
+            <elementSpec ident="draft" module="MEI.genetic" mode="add" prefix="bw_" ns="https://beethovens-werkstatt.de/ns/meiAdditions">
+               <desc>A version of the musical content that is unfinished – a sketch, draft or similar.</desc>
+               <classes>
+                  <memberOf key="att.common"/>
+                  <memberOf key="att.declaring"/>
+                  <memberOf key="att.trans"/>
+                  <memberOf key="model.draftLike"/>
+               </classes>
+               <content>
+                  <rng:ref name="model.pbLike"/>
+                  <rng:oneOrMore>
+                     <rng:ref name="model.bwSystemLike"/>
+                  </rng:oneOrMore>
+               </content>
+               <remarks>
+                  <p>Drafts may have any kind of score setup – an incomplete particell with multiple staves may 
+                     very well be regarded as <gi scheme="MEI">draft</gi>. However, their distinctive incompleteness 
+                     is important: It is not possible to map their content 1:1 to a later finished <gi scheme="MEI">score</gi>
+                     (or <gi scheme="MEI">part</gi>). Therefore, they allow only selective mapping, which can be done using
+                     <gi scheme="MEI">relation</gi>s with <att>rel</att>="isReconfigurationOf" inside the <gi scheme="MEI">genDesc</gi> element.  
+                  </p>
+               </remarks>
+            </elementSpec>
+            
+            <classSpec ident="model.bwSystemLike" type="model" module="MEI.genetic" mode="add">
+               <desc xml:lang="en">Groups elements similar to bw:systems.</desc>
+            </classSpec>
+            
+            <elementSpec ident="system" module="MEI.genetic" mode="add" prefix="bw_" ns="https://beethovens-werkstatt.de/ns/meiAdditions">
+               <desc>A system of one or more staff lines used for (a part of) a musical sketch.</desc>
+               <classes>
+                  <memberOf key="att.common"/>
+                  <memberOf key="att.declaring"/>
+                  <memberOf key="model.bwSystemLike"/>
+               </classes>
+               <content>
+                  <rng:ref name="model.scoreDefLike"/>
+                  <rng:ref name="model.sectionLike"/>
+               </content>
+               <remarks>
+                  <p>A system may use any of the existing staff lines on a page, or may use additional hand-drawn staff lines. It is not 
+                     necessary for a system to occupy the whole staff / staves. The linking to the staves used is done using @decls on staffDef.   
+                  </p>
+               </remarks>
+            </elementSpec>
+            
+            <elementSpec ident="scoreDef" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="model.scoreDefLike"/>
+               </classes>
+               <content>
+                  <rng:ref name="model.staffGrpLike"/>
+               </content>
+            </elementSpec>
+            
+            <elementSpec ident="staffGrp" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.staffGrp.vis"/>
+                  <memberOf key="model.staffGrpLike"/>
+               </classes>
+               <content>
+                  <rng:oneOrMore>
+                     <rng:ref name="model.staffDefLike"/>
+                  </rng:oneOrMore>
+               </content>
+               <constraintSpec ident="check-staffGrps" scheme="schematron" mode="add">
+                  <constraint>
+                     <sch:rule context="mei:staffGrp">
+                        <sch:assert test="@bar.thru">@bar.thru must be specified.</sch:assert>
+                        <sch:assert test="@symbol and @symbol = 'none'">@symbol must be 'none'.</sch:assert>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            
+            <classSpec type="atts" ident="att.barring" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.visibility" module="MEI.shared" mode="delete"/>
+            
+            <elementSpec ident="staffDef" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.nInteger"/>
+                  <memberOf key="att.staffDef.log"/>
+                  <memberOf key="att.metadataPointing"/>
+                  <memberOf key="model.staffDefLike"/>
+               </classes>
+               <content>
+                  <empty/>
+               </content>
+               <constraintSpec ident="check-staffDefs" scheme="schematron" mode="add">
+                  <constraint>
+                     <sch:rule context="mei:staffDef">
+                        <sch:assert test="@n">An @n attribute is mandatory.</sch:assert>
+                        <sch:assert test="@lines">A @lines attribute is mandatory.</sch:assert>
+                        <sch:assert test="@decls">A @decls attribute is mandatory.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="mei:staffDef/@decls">
+                        <sch:assert test="not(normalize-space(.) = '')">@decls must not be empty.</sch:assert>
+                        <sch:assert test="normalize-space(.) = .">@decls should be written with normalized space.</sch:assert>
+                        <sch:assert test="starts-with(., '../')">@decls should use a relative link.</sch:assert>
+                        <sch:assert test="contains(., '#')">@decls should have an ID pointing somewhere in the target file.</sch:assert>
+                        <sch:let name="relativeLink" value="substring-before(., '#')"/>
+                        <sch:let name="targetId" value="substring-after(., '#')"/>
+                        <sch:let name="base" value="base-uri()"/>
+                        <sch:let name="targetFileUri" value="resolve-uri($relativeLink, $base)"/>
+                        <sch:assert test="doc-available($targetFileUri)">There is no file available at <sch:value-of select="$targetFileUri"/>.</sch:assert>
+                        <sch:let name="targetFile" value="document($targetFileUri)"/>
+                        <sch:let name="target" value="$targetFile/id($targetId)"/>
+                        <sch:assert test="exists($target)">An element with ID <sch:value-of select="$targetId"/> cannot be found in <sch:value-of select="$targetFileUri"/>.</sch:assert>
+                        <sch:let name="name" value="local-name($target)"/>
+                        <sch:assert test="$name = 'rastrum'"><sch:value-of select="$targetId"/> points to a <sch:value-of select="$name"/>, must be a 'rastrum' instead.</sch:assert>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            
+            <classSpec type="atts" ident="att.cleffing.log" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.duration.default" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.keySigDefault.log" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.meterSigDefault.log" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.notationType" module="MEI" mode="delete"/>
+            <classSpec type="atts" ident="att.octaveDefault" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.transposition" module="MEI.shared" mode="delete"/>
+            <classSpec type="atts" ident="att.staffDef.log.cmn" module="MEI.cmn" mode="delete"/>
+            
+            <elementSpec ident="section" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="model.sectionLike"/>
+               </classes>
+               <content>
+                  <rng:oneOrMore>
+                     <rng:ref name="model.staffLike"/>
+                  </rng:oneOrMore>
+                  <rng:zeroOrMore>
+                     <rng:choice>
+                        <rng:ref name="model.graphicPrimitiveLike"/>
+                        <rng:ref name="model.controlEventLike"/>
+                        <rng:ref name="model.controlEventLike.cmn"/>
+                     </rng:choice>
+                  </rng:zeroOrMore>
+               </content>
+            </elementSpec>
+            
+            <elementSpec ident="staff" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.nInteger"/>
+                  <memberOf key="att.rotation"/>
+                  <memberOf key="model.staffLike"/>
+               </classes>
+               <content>
+                  <rng:ref name="model.layerLike"/>
+               </content>
+               <constraintSpec ident="check_staffRotation" scheme="schematron" mode="add">
+                  <constraint>
+                     <sch:rule context="mei:staff">
+                        <sch:assert test="@rotate">In a diplomatic transcription, each staff must specify its rotation using @rotate.</sch:assert>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            
+            <elementSpec ident="layer" module="MEI.shared" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.nInteger"/>
+                  <memberOf key="model.layerLike"/>
+               </classes>
+               <content>
+                  <rng:zeroOrMore>
+                     <rng:choice>
+                        <rng:ref name="model.annotLike"/>
+                        <rng:ref name="model.appLike"/>
+                        <rng:ref name="model.editLike"/>
+                        <rng:ref name="model.graphicPrimitiveLike"/>
+                        <rng:ref name="model.layerPart"/>
+                        <rng:ref name="model.milestoneLike.music"/>
+                        <rng:ref name="model.noteModifierLike"/>
+                        <rng:ref name="model.transcriptionLike"/>
+                     </rng:choice>
+                  </rng:zeroOrMore>
+               </content>
+            </elementSpec>
+            
+            <classSpec type="atts" ident="att.metadataPointing" module="MEI.shared" mode="replace">
+               <attList>
+                  <attDef ident="decls" usage="opt">
+                     <desc xml:lang="en">Identifies one or more metadata elements (other than classification terms) within the header, which are understood to apply to the element bearing this attribute and its content.</desc>
+                     <datatype maxOccurs="unbounded">
+                        <rng:ref name="data.URI"/>
+                     </datatype>
+                     <constraintSpec ident="check_declsTarget" scheme="schematron" mode="replace">
+                        <constraint>
+                           <sch:rule context="@decls">
+                              <sch:assert role="warning" test="not(normalize-space(.) eq '')">@decls attribute should have content.</sch:assert>
+                              <!--<sch:assert role="warning" test="every $i in tokenize(., '\s+') satisfies substring($i,2)=//mei:*[ancestor::mei:meiHead]/@xml:id">Each value in @decls should correspond to the @xml:id attribute of an element within the metadata header.</sch:assert>-->
+                              <sch:assert test="every $i in tokenize(., '\s+') satisfies not(substring($i,2)=//mei:term/@xml:id)">No value in @decls should correspond to the @xml:id attribute of a classification term. Use @class for this purpose.</sch:assert>
+                           </sch:rule>
+                        </constraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
+            <classSpec ident="att.rotation" module="MEI.shared" type="atts" mode="add">
+               <desc xml:lang="en">Attributes that record the rotation of a feature.</desc>
+               <attList>
+                  <attDef ident="rotate" usage="opt">
+                     <desc xml:lang="en">Describes rotation applied to the parent element. A positive value rotates in a counter-clockwise fashion, while negative values produce clockwise rotation.</desc>
+                     <datatype>
+                        <rng:ref name="data.ROTATION"/>
+                     </datatype>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
+            <classSpec ident="att.beamSpan.vis" module="MEI.visual" type="atts" mode="change">
+               <classes mode="change">
+                  <memberOf key="att.beam.vis"/>
+                  <memberOf key="att.xy"/>
+               </classes>
+            </classSpec>
+            
+            <classSpec ident="att.meiVersion" module="MEI.shared" type="atts" mode="replace">
+               <desc xml:lang="en">Attributes that record the version of MEI in use.</desc>
+               <attList>
+                  <attDef ident="meiversion" usage="opt">
+                     <desc xml:lang="en">Specifies a generic MEI version label.</desc>
+                     <valList type="closed">
+                        <valItem ident="6.0+beethovensWerkstatt">
+                           <desc xml:lang="en">MEI 6.0 with customizations by Beethovens Werkstatt</desc>
+                        </valItem>
+                     </valList>
+                  </attDef>
+               </attList>
+            </classSpec>
+         </schemaSpec>
+      </body>
+   </text>
+</TEI>

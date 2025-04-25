@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="mafc92d47-341a-482e-b3c6-8054e838351d">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="ma92c0817-edb6-488d-becb-d575475b551b">
         <fileDesc xml:id="fa9c82f8e-a863-4e19-9969-0714a4f3bfc4">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -160,8 +160,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="m182f82ca-1424-4133-a290-d727142078ba">
-                <drafts xml:id="df61fabcf-d3da-462e-b5f4-68daa4126b21">
-                    <draft xml:id="d8efa8d72-b942-4fa3-9fc0-3b68b4275a39" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="df61fabcf-d3da-462e-b5f4-68daa4126b21">
+                    <bw:draft xml:id="d8efa8d72-b942-4fa3-9fc0-3b68b4275a39" class="#bw_diplomatic_transcript">
                         <pb xml:id="p7930b69d-167c-4813-8b24-31b0dfef527f" target="../D-BNba_MH_60_Engelmann.xml#x989f416b-6af5-4615-82da-09eed754b965"/>
                         <bw:system xml:id="s502d9e52-5129-4177-b4ed-6360ff82b63b">
                             <scoreDef xml:id="s25b3cce6-bd5e-4633-9de1-682a08171107">
@@ -196,8 +196,8 @@
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

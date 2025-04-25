@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="maa5357a0-c74c-42d3-b1ed-550524932cbd">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="m26c272d8-a01b-4af8-a0e3-4bc6f9977a10">
         <fileDesc xml:id="f45f7d47a-5630-4eba-bbcf-81c95ccfc766">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -160,8 +160,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="m71883cab-c49c-4b15-b9fc-fecad519297f">
-                <drafts xml:id="dc7a68cc1-ddf3-4edc-a951-79cd78bfe5d2">
-                    <draft xml:id="de35cb0ee-3e6a-4341-aa01-327729c30805" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="dc7a68cc1-ddf3-4edc-a951-79cd78bfe5d2">
+                    <bw:draft xml:id="de35cb0ee-3e6a-4341-aa01-327729c30805" class="#bw_diplomatic_transcript">
                         <pb xml:id="p2b9aaf09-f150-4b8a-b548-13d72d970572" target="../D-BNba_MH_60_Engelmann.xml#x3ff8c2a2-81ef-40cc-8f3f-e135b610fe87"/>
                         <bw:system xml:id="sd3c53151-d72e-4c37-9c4e-f7a00b293cb3">
                             <scoreDef xml:id="s9043ccb1-92d9-4701-965b-6a1c5bfa0731">
@@ -169,7 +169,7 @@
                                     <staffDef xml:id="sa6b98e81-7bef-4acf-a48b-a39531eb6e6d" n="1" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r3e5848a6-9ee4-4787-ac42-0be8fa4b7f53"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sdba610c2-0071-4320-8cd7-d45335e958bf" join="#s1dc5d93c-883f-469b-97ef-afed0f23b3dc">
+                            <section xml:id="sdba610c2-0071-4320-8cd7-d45335e958bf" >
                                 <staff n="1" xml:id="s90b65220-f58c-4a88-ba4b-ade456a2a19b" rotate="0">
                                     <layer n="1" xml:id="ld0b2ad4f-1596-4ec8-945e-7560e4f7a30a">
                                         <note xml:id="d0f71522d-05de-4e31-bebe-8502250e253a" x="88.6" facs="../svg/D-BNba_MH_60_Engelmann_p030.svg#shape_41f61685-63e9-4221-b607-573c37e9f9ab ../svg/D-BNba_MH_60_Engelmann_p030.svg#shape_b7935c02-21b5-4066-aae3-a57ca7262f67" loc="10" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -185,14 +185,14 @@
                                     <staffDef xml:id="s96e3da15-a93d-423f-9d5f-628a9c909965" n="1" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r7d4835d0-daf2-46c8-9a32-65f40350f738"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s1dc5d93c-883f-469b-97ef-afed0f23b3dc" join="#sdba610c2-0071-4320-8cd7-d45335e958bf">
+                            <section xml:id="s1dc5d93c-883f-469b-97ef-afed0f23b3dc" >
                                 <staff n="1" xml:id="s8731af7c-3e17-44e2-9436-c51c3e89fe2a" rotate="0">
                                     <layer n="1" xml:id="lc9069561-a306-49cd-9540-3714bea1c67a"/>
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../../rng/bw_module4_complete.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../rng/bw_diplomaticTranscriptions.odd.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.music-encoding.org/ns/mei" xmlns:bw="https://beethovens-werkstatt.de/ns/meiAdditions" meiversion="6.0+beethovensWerkstatt" xml:id="mec125169-0ed4-498d-9f75-3361eb53b534">
     <meiHead meiversion="6.0+beethovensWerkstatt" xml:id="m9064a5c2-3250-4ada-9153-bf4354cde644">
         <fileDesc xml:id="f55a63d6e-fa57-454f-94de-f23a19f16232">
@@ -60,7 +60,7 @@
                     <category xml:id="bw_monitum_kontext"/>
                     <category xml:id="bw_monitum_konkordanz"/>
                     <category xml:id="bw_transcription_type"/>
-                    <category xml:id="xb8206fdc-e421-4ac0-b78d-3bee06b54f93"/>
+                    <category xml:id="bw_module"/>
                     <category xml:id="bw_geneticOrder"/>
                 </taxonomy>
                 <taxonomy xml:id="t27152031-df5e-4270-8630-24f0aac2d413">
@@ -160,8 +160,8 @@
     <music meiversion="6.0+beethovensWerkstatt">
         <body>
             <mdiv xml:id="mdae7957c-20b7-4a96-b0ed-71c21479f614">
-                <drafts xml:id="ddb2f501f-f3ad-4c3d-93be-9e063ece0119">
-                    <draft xml:id="d1302540c-1ce5-41f3-9bf5-05031951e587" class="#bw_diplomatic_transcript">
+                <bw:drafts xml:id="ddb2f501f-f3ad-4c3d-93be-9e063ece0119">
+                    <bw:draft xml:id="d1302540c-1ce5-41f3-9bf5-05031951e587" class="#bw_diplomatic_transcript">
                         <pb xml:id="pf977d572-2a8a-4ee9-880c-33120e034a44" target="../D-BNba_MH_60_Engelmann.xml#x8933a040-58f0-4865-9be6-530eeb25157c"/>
                         <bw:system xml:id="s6b2a72d2-d057-4936-8d60-00e617e6b933">
                             <scoreDef xml:id="sc41f0501-f6a8-41d1-9831-787742a0dcc5">
@@ -170,7 +170,7 @@
                                     <staffDef xml:id="sd40c7b42-bb60-4fa4-a849-0d685d77fc49" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#rca2b4b4e-57b6-4b32-9628-54d28f4c21d1"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sd8cbe5d9-068f-4f48-8637-e51632699220" join="#s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #sd9efa108-b607-4495-b39c-46548c05d751 #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s750e9c0e-47c6-44f3-b691-75426173105e #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="sd8cbe5d9-068f-4f48-8637-e51632699220" >
                                 <staff n="1" xml:id="s9823ec53-553d-46d4-9573-f9638d395e37" rotate="0.05">
                                     <layer n="1" xml:id="lc6dd94da-26ab-41cf-a11f-2e420d11f9ac">
                                         <note xml:id="d82453d64-1421-48a5-a8b7-932b062ca464" x="0.4" facs="../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_aa4579c6-28cf-4880-9c90-4d2022c2cbf9 ../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_5b14a057-3fc0-4b06-8fdc-0aa9a9a0518d ../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_f9d74d1b-86b1-49bd-b27d-10240416f060" loc="13" head.shape="quarter" dur="4" stem.dir="down"/>
@@ -222,7 +222,7 @@
                                     <staffDef xml:id="s792b2a1b-4f67-46f1-b4b8-9713287efc01" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#rf6200842-51bd-4fd1-9296-6cf3e66eb0d2"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s3acc8679-d5e9-451f-98e5-7d8b651bbe7f" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #sd9efa108-b607-4495-b39c-46548c05d751 #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s750e9c0e-47c6-44f3-b691-75426173105e #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="s3acc8679-d5e9-451f-98e5-7d8b651bbe7f" >
                                 <staff n="1" xml:id="s76b9badb-7b51-4cba-9881-453b75e4a9b4" rotate="0.05">
                                     <layer n="1" xml:id="l65074141-af97-440a-b4c3-a94352051a03">
                                         <note xml:id="d877c19db-dce2-42e0-9df9-f554dce5349e" x="29.6" facs="../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_08eb3e96-5bd5-4207-b75e-a2457f0e6ac3 ../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_4de93d73-402c-4240-be0e-8bb29bef817a" loc="6" head.shape="quarter" dur="16" stem.dir="down"/>
@@ -253,7 +253,7 @@
                                     <staffDef xml:id="s1a83f3a6-20a8-444a-98d2-a263caee45db" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r541adb4a-5631-45ba-8e08-73257ce6fc01"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s393d3ce9-c457-4f3d-9bcc-2dffd859904f" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #sd9efa108-b607-4495-b39c-46548c05d751 #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s750e9c0e-47c6-44f3-b691-75426173105e #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="s393d3ce9-c457-4f3d-9bcc-2dffd859904f" >
                                 <staff n="1" xml:id="s9def9328-7736-4112-bdd4-888abb540a5c" rotate="0.05">
                                     <layer n="1" xml:id="l7acb180b-0f17-468f-a81b-8afd9bfe6ca7">
                                         <rest xml:id="d41a6d2e0-5f37-4d78-b888-5e6fb1a6eb73" x="18.4" facs="../svg/D-BNba_MH_60_Engelmann_p018.svg#shape_9b16d58d-f528-44dd-829c-5b2a2ed79445" loc="5" glyph.name="rest8th" glyph.auth="smufl"/>
@@ -302,7 +302,7 @@
                                     <staffDef xml:id="s4f90f2f0-4b3d-4d36-8e33-4c01336915e8" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#rdbc18fce-b852-454f-864f-216ae22c1db7"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="sd9efa108-b607-4495-b39c-46548c05d751" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s750e9c0e-47c6-44f3-b691-75426173105e #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="sd9efa108-b607-4495-b39c-46548c05d751" >
                                 <staff n="1" xml:id="s4e2a0b80-be59-4b4f-9250-67f0dfbbbd63" rotate="0.04">
                                     <layer n="1" xml:id="lbf775a16-5d32-49c7-8f72-0b12c3691e77"/>
                                 </staff>
@@ -318,7 +318,7 @@
                                     <staffDef xml:id="s593d9324-ec99-4e63-bf46-b1c4b00ec9be" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r3f3e6a4b-e6d7-4423-b6b6-054b13cb4878"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s46e8fdc9-ad13-47ef-82f5-936b90b383ef" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #sd9efa108-b607-4495-b39c-46548c05d751 #s750e9c0e-47c6-44f3-b691-75426173105e #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="s46e8fdc9-ad13-47ef-82f5-936b90b383ef" >
                                 <staff n="1" xml:id="s715c1ead-47af-404e-813f-bd26e61024ee" rotate="0.04">
                                     <layer n="1" xml:id="l7bfe8a2e-2774-4ce4-ae24-883703496ae8"/>
                                 </staff>
@@ -334,7 +334,7 @@
                                     <staffDef xml:id="se3c05d3e-8925-40fb-a64d-f1e085e79f4c" n="2" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#r999ae083-f13d-4276-a827-2f12c03527f0"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s750e9c0e-47c6-44f3-b691-75426173105e" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #sd9efa108-b607-4495-b39c-46548c05d751 #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s46f972f3-01de-4b35-ba14-a71abea9e42d">
+                            <section xml:id="s750e9c0e-47c6-44f3-b691-75426173105e" >
                                 <staff n="1" xml:id="sa826c28f-5ed7-4463-97a0-e029cce9db41" rotate="0.04">
                                     <layer n="1" xml:id="lc6987bf2-90da-404e-9795-e24131ea5d48"/>
                                 </staff>
@@ -349,14 +349,14 @@
                                     <staffDef xml:id="sc0629dde-8d86-4572-9ed5-ccce0ebe2926" n="1" lines="5" decls="../D-BNba_MH_60_Engelmann.xml#ra802462f-7573-4360-8c77-4c6c6e834b19"/>
                                 </staffGrp>
                             </scoreDef>
-                            <section xml:id="s46f972f3-01de-4b35-ba14-a71abea9e42d" join="#sd8cbe5d9-068f-4f48-8637-e51632699220 #s3acc8679-d5e9-451f-98e5-7d8b651bbe7f #s393d3ce9-c457-4f3d-9bcc-2dffd859904f #sd9efa108-b607-4495-b39c-46548c05d751 #s46e8fdc9-ad13-47ef-82f5-936b90b383ef #s750e9c0e-47c6-44f3-b691-75426173105e">
+                            <section xml:id="s46f972f3-01de-4b35-ba14-a71abea9e42d" >
                                 <staff n="1" xml:id="s555de549-8495-4cac-a4ee-8295a4799847" rotate="0.05">
                                     <layer n="1" xml:id="l9d71161b-bda9-4e6d-b939-6cff7a6c19be"/>
                                 </staff>
                             </section>
                         </bw:system>
-                    </draft>
-                </drafts>
+                    </bw:draft>
+                </bw:drafts>
             </mdiv>
         </body>
     </music>
