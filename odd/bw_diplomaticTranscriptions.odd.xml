@@ -3,7 +3,8 @@
 <?xml-model href="mei-customizations.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns:rng="http://relaxng.org/ns/structure/1.0"
    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://www.tei-c.org/ns/1.0">
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+   xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -39,6 +40,7 @@
       <body>
          <schemaSpec ident="mei" ns="http://www.music-encoding.org/ns/mei" prefix="mei_"
             start="mei" source="https://raw.githubusercontent.com/music-encoding/schema/refs/heads/main/dev/mei-all_compiled.odd">
+            
             <!-- Declare MEI and XLink namespaces for use in Schematron -->
             <constraintSpec ident="set_ns" scheme="schematron" mode="add">
                <constraint>
@@ -60,6 +62,8 @@
                except="bend bracketSpan breath meterSigGrp mNum tupletSpan"/>
             <moduleRef key="MEI.cmnOrnaments"/>
             <moduleRef key="MEI.drama"/>
+            <moduleRef key="MEI.edittrans" 
+               include="del"/>
             <moduleRef key="MEI.externalsymbols"/>
             <moduleRef key="MEI.facsimile"/>
             <moduleRef key="MEI.figtable" include="graphic"/>
@@ -74,7 +78,7 @@
                except="addName bloc country district famName foreName genName geogFeat nameLink periodName postBox postCode region roleName settlement street styleName"/>
             <moduleRef key="MEI.ptrref"/>
             <moduleRef key="MEI.shared"
-               except="actor address addrLine ambitus ambNote analytic author barLine caption castGrp castItem cb castList colLayout contributor custos depth dim dimensions distributor div dot edition event eventList expansion extent genre group height imprint incip keyAccid lg librettist monogr pad pgDesc pgFoot pgHead phrase recipient relatedItem role roleDesc speaker sponsor stack term textLang titlePage titlePart width"/>
+               except="actor address addrLine ambitus ambNote analytic barLine caption castGrp castItem cb castList colLayout contributor custos depth dim dimensions distributor div dot edition event eventList expansion extent genre group height imprint incip keyAccid lg monogr pad pgDesc pgFoot pgHead phrase recipient relatedItem role roleDesc speaker sponsor stack term textLang titlePage titlePart width"/>
             <moduleRef key="MEI.usersymbols"
                include="anchoredText curve line"/>
             <moduleRef key="MEI.visual"/>
@@ -110,7 +114,6 @@
                   </attDef>
                </attList>
             </classSpec>
-            
             
             <!-- Disable mensural- and neume-specific model classes in the shared module -->
             <classSpec ident="model.sectionPart.mensuralAndNeumes" module="MEI.shared" type="model"
@@ -320,6 +323,9 @@
                   <rng:oneOrMore>
                      <rng:ref name="model.bwSystemLike"/>
                   </rng:oneOrMore>
+                  <rng:zeroOrMore>
+                     <rng:ref name="del"/>
+                  </rng:zeroOrMore>
                </content>
                <remarks>
                   <p>Drafts may have any kind of score setup – an incomplete particell with multiple staves may 
@@ -448,6 +454,7 @@
                         <rng:ref name="model.graphicPrimitiveLike"/>
                         <rng:ref name="model.controlEventLike"/>
                         <rng:ref name="model.controlEventLike.cmn"/>
+                        <rng:ref name="model.wordLike"/>
                      </rng:choice>
                   </rng:zeroOrMore>
                </content>
@@ -494,6 +501,46 @@
                </content>
             </elementSpec>
             
+            <elementSpec ident="del" module="MEI.edittrans" mode="change">
+               <classes mode="replace">
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.facsimile"/>
+               </classes>
+               <content>
+                  <empty/>
+               </content>
+            </elementSpec>
+            
+            <elementSpec ident="word" module="MEI.lyrics" mode="add">
+               <desc xml:lang="en">A single word, for which hyphenation may or may not be possible.</desc>
+               <classes>
+                  <memberOf key="att.id"/>
+                  <memberOf key="att.facsimile"/>
+                  <memberOf key="att.staffIdent"/>
+                  <memberOf key="att.xy"/>
+                  <!--<memberOf key="att.word.log"/>
+                  <memberOf key="att.word.vis"/>
+                  <memberOf key="att.word.ges"/>
+                  <memberOf key="att.word.anl"/>-->
+                  <memberOf key="model.wordLike"/>
+               </classes>
+               <content>
+                  <!--<rng:choice>
+                     <rng:oneOrMore>
+                        <rng:ref name="model.sylLike"/>
+                     </rng:oneOrMore>-->
+                     <rng:text/>
+                  <!--</rng:choice>-->
+               </content>
+               <remarks xml:lang="en">
+                  <p>The <gi scheme="MEI">lb</gi> element is allowed here in order to facilitate karaoke applications. The <att>func</att> attribute on <gi scheme="MEI">lb</gi> may be used to distinguish true line endings from those of line groups for these applications.</p>
+               </remarks>
+            </elementSpec>
+            
+            <classSpec type="model" ident="model.wordLike" module="MEI.lyrics" mode="add">
+               <desc xml:lang="en">Groups elements that capture a word.</desc>
+            </classSpec>
+            
             <classSpec type="atts" ident="att.metadataPointing" module="MEI.shared" mode="replace">
                <attList>
                   <attDef ident="decls" usage="opt">
@@ -532,6 +579,37 @@
                   <memberOf key="att.xy"/>
                </classes>
             </classSpec>
+            
+            <elementSpec ident="hairpin" module="MEI.cmn" mode="change">
+               <constraintSpec ident="hairpin_start-_and_end-type_attributes_required" scheme="schematron" mode="replace">
+                  <constraint>
+                     <sch:rule context="mei:hairpin">
+                        <sch:assert test="@x and @y">Diplomatic hairpins must use @x and @y for their left end.</sch:assert>
+                        <sch:assert test="@x2 and @y2">Diplomatic hairpins must use @x2 and @y2 for their right end.</sch:assert>
+                        <sch:assert test="not(@dur or @dur.ges or @endid or @tstamp2 or @startid or @tstamp or @tstamp.ges or @tstamp.real)">Diplomatic hairpins must not use the following attributes: startid, tstamp, tstamp.ges, tstamp.real, dur, dur.ges, endid, or tstamp2.</sch:assert>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            
+            <classSpec ident="att.hairpin.vis" module="MEI.visual" type="atts" mode="change">
+               <attList>
+                  <attDef ident="opening" usage="req" mode="replace">
+                     <desc xml:lang="en">Specifies the distance between the lines at the open end of a hairpin dynamic mark.</desc>
+                     <datatype>
+                        <ref name="data.MEASUREMENTUNSIGNED"/>
+                     </datatype>
+                  </attDef>
+                  <!-- Attribute in custom Namespace -->
+                  <attDef ident="start.opening" usage="req" mode="add" ns="https://beethovens-werkstatt.de/ns/meiAdditions">
+                     <desc xml:lang="en">Specifies the distance between the lines at the closed end of a hairpin dynamic mark.</desc>
+                     <datatype>
+                        <ref name="data.MEASUREMENTUNSIGNED"/>
+                     </datatype>
+                  </attDef>
+               </attList>
+            </classSpec>
+            
             
             <classSpec ident="att.meiVersion" module="MEI.shared" type="atts" mode="replace">
                <desc xml:lang="en">Attributes that record the version of MEI in use.</desc>
